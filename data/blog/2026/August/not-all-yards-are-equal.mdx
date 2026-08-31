@@ -1,0 +1,122 @@
+---
+title: 'Not All Yards Are Equal'
+date: '2026-08-19'
+tags: ['epa', 'explainer', 'mississippi state', 'sec']
+draft: false
+summary: 'Fluff Bothwell ran for one yard twice against Northern Illinois last year. One was worth +2.57 points. The other cost 1.49. Here is why yards are a bad way to measure football.'
+---
+
+Fluff Bothwell ran for one yard twice against Northern Illinois last season.
+
+The first came in the first quarter, 4th and 1 near midfield. He got the yard, MSU kept the ball, and the drive continued.
+
+The second came in the third quarter, 3rd and 2. He got the yard, and MSU punted.
+
+The box score records both as a one-yard rush. Same player, same game, same result on the stat sheet. But by expected points, the first was worth **+2.57** and the second **−1.49** — a swing of more than four points between two plays that look identical in every traditional accounting.
+
+That gap is what this post is about.
+
+## Yards are a unit that changes value
+
+Every stat you see on a broadcast is built on yards. Total offense, rushing yards, yards per game, yards per play. All of them add up yards as if a yard is a yard.
+
+It isn't.
+
+Three yards on 3rd and 2 is a conversion. Three yards on 3rd and 8 is a punt. Three yards from your own 20 and three yards from the opponent's 5 are different events with different consequences. A team can out-gain an opponent by a hundred yards and lose, and the yardage column gives you no way to see why.
+
+Here is every situation from the 2025 season where an offense gained exactly three yards, with at least 100 such plays:
+
+| Down and distance | Plays | EPA       |
+| ----------------- | ----- | --------- |
+| 3rd and 3         | 302   | **+1.47** |
+| 1st and 3         | 233   | +1.06     |
+| 3rd and 2         | 440   | +0.83     |
+| 2nd and 3         | 382   | +0.76     |
+| 3rd and 1         | 504   | +0.49     |
+| 2nd and 5         | 466   | −0.18     |
+| 1st and 10        | 6,526 | −0.33     |
+| 2nd and 1         | 265   | −0.34     |
+| 1st and 15        | 125   | −0.36     |
+
+Same three yards. A range of 1.8 points, depending entirely on when it happened.
+
+## Expected points
+
+The fix is to stop measuring the play and start measuring the situation it left you in.
+
+Take every play in college football history and sort it by game state: down, distance, yard line, time remaining. For each state, ask a simple question — historically, what were the next points scored? Positive if the team with the ball scored them, negative if the other team did.
+
+The answers are not theoretical. They are just what happened, averaged over decades.
+
+First and ten at your own 20 is worth around half a point. First and goal at the 5 is worth around five. Third and 15 at your own 5 is slightly **negative**, because from that spot the other team is more likely to score next than you are.
+
+That is the expected points model. **EPA — expected points added — is simply the difference between the state before the snap and the state after it.**
+
+Bothwell's 4th-and-1 conversion moved MSU from a state worth about half a point to a state worth about three. That difference is the +2.57. His 3rd-and-2 run left them facing 4th and 1 with a punt coming, which is worth less than where they started. That is the −1.49.
+
+One number, and it handles down, distance, and field position automatically. It is why EPA became the standard.
+
+## Big plays are not automatically valuable either
+
+The obvious objection is that this is a story about short-yardage situations. It isn't.
+
+Against Georgia last year, MSU had two of their best plays of the season:
+
+| Quarter | Situation  | Yards gained | EPA       |
+| ------- | ---------- | ------------ | --------- |
+| 3rd     | 4th and 6  | **6**        | **+5.17** |
+| 4th     | 1st and 10 | **57**       | **+5.12** |
+
+A six-yard completion worth as much as a fifty-seven-yard one. The six-yarder converted a fourth down — fail and the drive ends immediately. The 57-yarder was a great play, but it came on first down with the drive alive either way.
+
+Fifteen-yard runs vary just as much. A 15-yard run on 4th and 7 against Tennessee was worth +4.21. A 15-yard run on 1st and 10 against Wake Forest was worth +0.42. Both would be called explosive. One was worth ten times the other.
+
+## Success rate: the companion metric
+
+EPA tells you how much a play was worth. It does not tell you how often an offense works.
+
+Success rate does. A play is successful if it keeps the drive on schedule:
+
+- **1st down:** gain at least 50% of the distance
+- **2nd down:** at least 70%
+- **3rd and 4th down:** all of it
+- **Turnovers always fail**
+
+The thresholds rise because your margin shrinks. On 1st and 10, gaining 5 leaves 2nd and 5, which is comfortable. On 2nd and 10, gaining 5 leaves 3rd and 5, which is not. On third down there is no partial credit — you convert or you give the ball away.
+
+Averaged over a season, success rate tells you how consistently an offense operates. It is the most stable number in football analytics, which means it describes what a team **is** rather than what happened to them.
+
+## Where the two disagree
+
+Look back at the three-yard table. Second and 1, gain three yards: that is a first down, so success rate counts it. But the EPA is **−0.34**.
+
+Both are right. You stayed on schedule, so by the definition of success rate, the play worked. But you were already in an excellent position — 2nd and 1 is nearly a free down — and three yards barely improved it while burning the down.
+
+That is the useful thing about carrying both numbers. Success rate answers _how often does this offense work_. EPA answers _how much is it worth when it does_. Teams can be very different on those two axes while posting similar totals, and I will come back to that in a later post.
+
+## What this says about Mississippi State
+
+Running MSU's 2025 offense through both, against FBS opponents only and with garbage time excluded:
+
+- **EPA per play: +0.020**
+- **Success rate: 41.4%**
+
+Roughly league average on both. Not the disaster the record might suggest, and not close to the top of the conference either.
+
+Those two numbers are more honest than any yardage total, but they are still incomplete. They do not adjust for who MSU played, and in the SEC that matters enormously — a schedule with Georgia and Texas on it is not the same test as one without. They also do not separate the two things I mentioned above: how often the offense worked versus how big it was when it did.
+
+Both of those are the next two posts.
+
+## What I am not doing yet
+
+A few things I am deliberately leaving for later, because they each deserve their own explanation:
+
+- **Explosiveness**, and why efficiency and big plays are close to opposite traits
+- **Garbage time**, and why filtering it changes MSU's number by 30%
+- **Opponent adjustment**, and why raw SEC numbers are close to meaningless before October
+
+For now, the takeaway is smaller than that. When someone tells you a team gained 400 yards, ask when. It is a different number depending on the answer.
+
+---
+
+_Data from [cfbfastR](https://github.com/sportsdataverse/cfbfastR). Every number here is computed from play-by-play data covering the 2020 to 2025 seasons. Code is on [GitHub](https://github.com/3uLLd0gs)._
