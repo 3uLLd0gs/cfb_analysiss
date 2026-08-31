@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Data With Minsub",
+  "short_name": "Data With Minsub",
   "icons": [
     {
       "src": "/android-chrome-96x96.png",
@@ -8,7 +8,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#5c0a18",
+  "background_color": "#ffffff",
   "display": "standalone"
 }
