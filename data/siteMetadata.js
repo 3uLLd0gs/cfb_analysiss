@@ -3,7 +3,8 @@ const siteMetadata = {
   title: 'Data With Minsub',
   author: 'Minsub Song',
   headerTitle: 'Data With Minsub',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description:
+    'College football through play-by-play data — expected points, what the box score misses, and a lot of Mississippi State.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://data-with-minsub.vercel.app',

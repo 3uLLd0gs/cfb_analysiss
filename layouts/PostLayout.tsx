@@ -14,11 +14,15 @@ const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
+// timeZone is pinned to UTC for the same reason as in @/lib/formatDate: post
+// dates are date-only strings, so rendering them in the runtime's timezone
+// shifts the day (and the weekday) depending on where the build runs.
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
   year: 'numeric',
   month: 'long',
   day: 'numeric',
+  timeZone: 'UTC',
 }
 
 interface LayoutProps {
