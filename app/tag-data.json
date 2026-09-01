@@ -1,6 +1,8 @@
 {
-  "epa": 1,
-  "explainer": 1,
-  "mississippi-state": 1,
-  "sec": 1
+  "epa": 2,
+  "explainer": 2,
+  "mississippi-state": 2,
+  "sec": 1,
+  "garbage-time": 1,
+  "methods": 1
 }
