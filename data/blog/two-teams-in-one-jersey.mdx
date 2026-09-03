@@ -1,0 +1,124 @@
+---
+title: 'Two Teams in One Jersey'
+date: '2026-09-03'
+tags: ['epa', 'defense', 'explainer', 'mississippi state', 'roster construction']
+draft: false
+summary: 'Mississippi State fixed its offense in 2024 and its defense fell apart the same year. Across 772 team-seasons, knowing how good an offense is tells you essentially nothing about the defense behind it — but changing one does cost you a little of the other.'
+---
+
+Mississippi State hired Jeff Lebby to fix the offense. In 2024 the offense got fixed — from −0.135 expected points added per play to roughly break-even, the largest one-year offensive gain of the Arnett-to-Lebby era.
+
+The defense fell apart in the same twelve months. It went from a little better than average to the worst mark of the six seasons I have data for, by a distance.
+
+That pairing invites an obvious story: a program only has so much to spend, it spent it on offense, and the defense paid. It is a tidy story. Before believing it, it is worth asking whether the two sides of a football team are connected at all.
+
+## Every team-season since 2020
+
+Here is every FBS team-season from 2020 through 2025 — 772 of them — plotted as offense against defense.
+
+<Image
+  src="/static/images/off-def-cloud.png"
+  alt="Scatter plot of 772 FBS team-seasons from 2020 to 2025, offensive EPA per play on the x-axis and defensive quality on the y-axis, forming a shapeless cloud with 25 percent of teams in each quadrant. Mississippi State's six seasons are marked in maroon."
+  width={1778}
+  height={1419}
+/>
+
+Right is a better offense. Up is a better defense — the defensive axis is flipped so that both directions mean "good," which is the only way a chart like this is readable. The dashed lines are the medians, near +0.02 on offense and −0.03 on defense. Garbage time and FCS opponents are excluded throughout, for [the reasons laid out here](/blog/the-plays-that-dont-count).
+
+It is a blob. The correlation is **+0.04**, which in a sample this size is another way of writing zero.
+
+## What the even quadrants are actually telling you
+
+The four corner labels all read 25%, and it would be easy to dismiss that as an artifact of splitting at the median. It is not, and the distinction matters.
+
+Cutting at the median guarantees that half the teams fall left and half fall right, and that half fall above and half below. It guarantees nothing about the four corners. If good offenses tended to come with good defenses, the top-right and bottom-left corners would swell and the other two would empty out — something like 32/18/18/32. If the two traded off, the split would tilt the other way.
+
+An even 25/25/25/25 is what you get when the vertical position of a dot carries no information about its horizontal position. **Knowing that a team has a top-half offense leaves you exactly where you started on whether it has a top-half defense.**
+
+Which is worth sitting with, because almost nothing about how football is discussed reflects it. Teams get described as good or bad. Rankings collapse to one number. Records blend the two units into a single result and then get read backward as if that result described a single thing.
+
+## Mississippi State's six dots
+
+| Season | Coach  | Offense    | Defense   | Quadrant           |
+| ------ | ------ | ---------- | --------- | ------------------ |
+| 2020   | Leach  | −0.154     | **+0.06** | bad off / good def |
+| 2021   | Leach  | **+0.108** | −0.05     | good off / bad def |
+| 2022   | Leach  | −0.031     | **+0.07** | bad off / good def |
+| 2023   | Arnett | −0.135     | −0.02     | bad off / good def |
+| 2024   | Lebby  | +0.009     | **−0.19** | bad off / bad def  |
+| 2025   | Lebby  | +0.022     | −0.08     | good off / bad def |
+
+Six seasons, and not one of them lands in the upper-right corner. Mississippi State has not once fielded an above-median offense and an above-median defense in the same year.
+
+Two honest caveats on that. 2021 is the near miss — a genuinely good Leach offense with a defense that finished just under the line rather than well under it. And the 2024 and 2025 offenses sit within a hundredth of the median on either side of it, so the labels on those two rows are a coin flip dressed up as a category.
+
+Still: a quarter of the sport manages both in any given year. Going 0-for-6 at something with a 25% base rate has about a one-in-six chance of happening to a team that is merely average at building rosters. Not damning. Not nothing either.
+
+The more useful reading of that column is the pattern in it. The Leach years put a good defense behind a bad offense twice, then a bad defense behind a good offense once. The Lebby years have the offense creeping above water while the defense sits below it. The program keeps assembling one functional unit at a time.
+
+## Now watch the same team change
+
+The first chart compares different programs to each other. That is not the question the 2024 season raises. The question is what happens **inside** one program when it moves.
+
+So here is the same data differenced: for every team, every consecutive pair of seasons, how much the offense changed against how much the defense changed. 636 transitions.
+
+<Image
+  src="/static/images/off-def-seesaw.png"
+  alt="Scatter plot of 636 consecutive-season transitions, change in offense on the x-axis against change in defense on the y-axis, with a fitted line sloping downward from left to right. Mississippi State's five transitions are labeled in maroon."
+  width={1778}
+  height={1419}
+/>
+
+The cloud is still wide, but it tilts now. The correlation is **−0.20**. Teams whose offense improved tended, mildly, to have defenses that got worse.
+
+Two charts, two different answers, and the disagreement is the interesting part.
+
+## Why the level says zero and the change says negative
+
+The cross-section is measuring two things at once and letting them cancel.
+
+Programs are not equally resourced. Georgia has more of everything than Kentucky does — more recruiting pull, more portal money, more depth, better facilities — and all of it lifts both units together. That effect is positive and it is large.
+
+Underneath it sits the allocation question: given whatever a program has, how is it split? That effect is negative, because scholarships and practice reps and coaching attention are finite.
+
+Compare across programs and those two forces run into each other. The total-resources effect pushes toward a positive correlation, the allocation effect pushes negative, and what comes out the other side is +0.04.
+
+Differencing within a team strips out the first effect. A program's resource level is roughly the same in year two as it was in year one, so comparing a team to itself holds it fixed and leaves the allocation tradeoff visible on its own. That is where the −0.20 comes from.
+
+There is a second reason to think −0.20 is a floor rather than a ceiling. Both units play the same schedule, so a year in which the slate gets harder drags both of them down at once, and a year in which it softens lifts both. Schedule swings push the change correlation _toward positive_. The seesaw shows up at −0.20 despite that headwind, not because of it.
+
+## The seesaw is real and it is cheap
+
+Real is not the same as large. A correlation of −0.20 accounts for **4%** of the variation in how defenses change year to year. The other 96% is coordinators, attrition, injuries, development, and luck — things that have nothing to do with what the offense did.
+
+The fitted line puts a price on it. Improve an offense by 0.10 EPA per play — a big move, close to what MSU pulled off in 2024 — and the line expects the defense to give back a shade under 0.02. **You keep better than eighty cents on the dollar.**
+
+That is worth stating plainly, because the intuitive version of this tradeoff is far more punitive than the data supports. Fixing your offense is not robbing your defense in any sense a coach should lose sleep over. It costs something. It costs about a sixth of what you gain.
+
+## Back to 2024
+
+Which brings the tidy story back for judgment.
+
+Mississippi State's offense improved by 0.144 in 2024. The trend line says a move that size should have cost the defense about 0.025.
+
+The defense actually declined by 0.167 — roughly six times the predicted amount. On the chart, that transition sits far below the line, in the low-right region where offensive gains coincide with defensive freefall.
+
+**The seesaw does not cover it.** About 15% of what happened to that defense is the kind of thing that happens to any program pouring itself into the other side of the ball. The remaining 85% was a defense getting worse for its own reasons, on its own schedule, and it would be a mistake to file it under the cost of hiring an offensive coach.
+
+The following year makes the same point from the other direction. From 2024 to 2025 the offense inched up again, by 0.013 — and the defense recovered 0.102, its largest gain of the six years. Both units improved at once, which is the quadrant the trend line argues against. The defense did not rebound because the offense stopped taking from it. It rebounded because a defense is its own project.
+
+## Where this leaves the toolkit
+
+The practical version is short.
+
+**Rate the units, not the team.** A single number for a program averages two things that have close to no relationship, and the average describes neither.
+
+**Do not explain one unit with the other.** The tradeoff exists, it is weak, and it is nowhere near strong enough to serve as the reason a defense collapsed. Reaching for it is usually a way of avoiding the actual question.
+
+**For Mississippi State specifically:** the offense is now the more settled of the two units, which has not been true since 2021. The defense at −0.08 is the thing standing between this roster and the corner of the chart it has never visited — and the second chart says fixing it is mostly independent of whatever happens to the offense.
+
+The caveat from every previous post applies here too, and applies to both axes now instead of one. None of these numbers know who was on the other side of the ball. An offense at +0.022 against the SEC and an offense at +0.022 against the Sun Belt are not the same offense, and a defense at −0.08 in this league is not the same as a defense at −0.08 somewhere else. Opponent adjustment is still the largest hole in everything on this site.
+
+---
+
+_Data from [cfbfastR](https://github.com/sportsdataverse/cfbfastR), 2020–2025 seasons. All figures exclude garbage time and non-FBS opponents. Defensive quality is signed so that higher is better. Code is on [GitHub](https://github.com/3uLLd0gs)._

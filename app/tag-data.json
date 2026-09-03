@@ -1,10 +1,12 @@
 {
-  "epa": 3,
-  "explainer": 3,
-  "mississippi-state": 3,
+  "epa": 4,
+  "explainer": 4,
+  "mississippi-state": 4,
   "sec": 2,
   "garbage-time": 1,
   "methods": 1,
+  "defense": 1,
+  "roster-construction": 1,
   "explosiveness": 1,
   "isoppp": 1
 }
