@@ -1,8 +1,10 @@
 {
-  "epa": 2,
-  "explainer": 2,
-  "mississippi-state": 2,
-  "sec": 1,
+  "epa": 3,
+  "explainer": 3,
+  "mississippi-state": 3,
+  "sec": 2,
   "garbage-time": 1,
-  "methods": 1
+  "methods": 1,
+  "explosiveness": 1,
+  "isoppp": 1
 }
