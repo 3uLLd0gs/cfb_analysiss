@@ -3,14 +3,14 @@ title: "The Plays That Don't Count"
 date: '2026-09-01'
 tags: ['epa', 'explainer', 'garbage time', 'methods', 'mississippi state']
 draft: false
-summary: "Eight percent of Mississippi State's 2025 snaps changed their offensive rating by 30%. Here is what garbage time does to a season number, and whether the standard filter for it actually holds up."
+summary: "Eight and a half percent of Mississippi State's 2025 snaps changed their offensive rating by a quarter. Here is what garbage time does to a season number, whether the standard filter for it holds up, and the flaw my first check of it could not see."
 ---
 
 Mississippi State's offense averaged 0.069 expected points added per play in 2025.
 
-Or 0.048, depending on whether you throw out eight percent of their snaps.
+Or 0.052, depending on whether you throw out eight and a half percent of their snaps.
 
-That is a 30% difference in a team's headline number, produced by a filter most people never see mentioned. It is worth understanding what that filter does and why it exists.
+That is a quarter of a team's headline number, moved by a filter most people never see mentioned. It is worth understanding what that filter does and why it exists.
 
 ## Blowouts stop being football
 
@@ -43,7 +43,7 @@ Two mechanical details matter more than they sound like they do.
 
 **It is the margin, not the leader.** The filter removes plays from both offenses. The team ahead is running clock and the team behind is padding, and neither is telling you much.
 
-Across all of FBS in 2025, this flags **10.2% of scrimmage plays.** One snap in ten happens in a game that has already been decided.
+Across all of FBS in 2025, this flags **10.5% of scrimmage plays.** One snap in ten happens in a game that has already been decided.
 
 ## Week 0 provided a demonstration
 
@@ -71,8 +71,8 @@ One honest complication: as San Jose State scored, the margin shrank. Once it dr
 |                                     | EPA per play |
 | ----------------------------------- | ------------ |
 | All plays                           | 0.069        |
-| Garbage time removed                | **0.048**    |
-| Garbage removed, FBS opponents only | **0.022**    |
+| Garbage time removed                | **0.052**    |
+| Garbage removed, FBS opponents only | **0.026**    |
 
 Each filter takes the number down. The first removes snaps taken in decided games. The second removes the Alcorn State game, where a Power Four roster played an FCS one.
 
@@ -84,23 +84,62 @@ I used those four thresholds because everyone does. That is a bad reason to use 
 
 The play-by-play data carries a win probability estimate for the situation before each snap. If garbage time means _the outcome is no longer in doubt_, then the thresholds should land where the leading team's win probability is effectively 100%. That is a testable claim.
 
-Here is 2025, by quarter and margin:
+When I first published this post, I ran that test on 2025 and it came back clean. Every threshold sat above 99% win probability. The first-quarter cutoff came in at 99.95%, on a bucket of 144 plays that I flagged as thin and moved past.
 
-| Quarter | Margin    | Plays | Leader's win probability |
-| ------- | --------- | ----- | ------------------------ |
-| 1st     | 21–27     | 1,350 | 97.9%                    |
-| 1st     | 28–34     | 519   | 99.3%                    |
-| 1st     | 35–42     | 301   | 99.7%                    |
-| 1st     | **43+**   | 144   | **99.95%**               |
-| 4th     | 14–20     | 9,618 | 97.8%                    |
-| 4th     | **21–27** | 6,634 | **99.6%**                |
-| 4th     | 28–34     | 4,579 | 99.9%                    |
+The test was broken, and the way it was broken is the most useful thing in this post.
 
-Two things came out of this.
+## The number the filter reads
 
-**The thresholds are safe.** Every one of them sits above 99% win probability. Nothing in the standard definition is throwing away football that was still competitive. Whatever else is true, the filter is not too aggressive.
+The garbage-time rule looks at one number per play: the score margin before the snap. The data supplies that margin as a ready-made column. I checked the thresholds. I never checked the column.
 
-**They are not internally consistent.** The first-quarter cutoff corresponds to 99.95% certainty. The fourth-quarter cutoff corresponds to about 99.6%. Those are not the same standard. If you wanted one uniform rule — say, exclude everything above 99% win probability — the first-quarter threshold would sit somewhere near 28 points, not 43.
+The column is wrong. On a play where nobody scores, the margin cannot change, so the column should match the scoreboard. In 2023 and 2024 it does, more than 99% of the time. In 2025 it disagrees on 8.5% of those plays.
+
+Here is what that looks like. Mississippi State against Georgia, third quarter, MSU down 38–7, the first four snaps of a drive:
+
+| Snap | Scoreboard | Margin column | MSU win probability |
+| ---- | ---------- | ------------- | ------------------- |
+| 1st  | 7–38       | −31           | 0.1%                |
+| 2nd  | 7–38       | −31           | 0.1%                |
+| 3rd  | 7–38       | **0**         | **58%**             |
+| 4th  | 7–38       | −31           | 0.1%                |
+
+For one incomplete pass, the data believed the game was tied.
+
+The margin being wrong is bad. The win probability being wrong along with it is what sank my check. In this feed, win probability moves with the margin column, not with the scoreboard: on the 2025 plays where the two disagree, win probability correlates 0.88 with the column and 0.24 with the actual score. It is computed from the same broken number.
+
+So I had graded the thresholds against a second opinion that had copied the first one's homework. Wherever the margin was wrong, the win probability agreed with it, and the test came back clean because it could not do anything else. **A check built on the same inputs as the thing it checks can only agree with it.**
+
+The first-quarter bucket is where that shows. I called those 144 plays thin and noisy. They were fictional. Rebuilt from the scoreboard, their real margins ran from 0 to 23 points — a median of 7 — scattered across 42 different games. Not one snap of the 2025 season was played in the first quarter with a 43-point margin. The filter had been throwing those snaps away as garbage time, and the win probability, reading the same bad margin, called every one of them decided.
+
+## Rebuilding the margin
+
+The fix is to stop trusting the column. The running score on each play is reliable — it reproduces every game's scoring exactly — so the margin before a snap can be rebuilt from the score after the play before it.
+
+Across 2025 that changes the status of about 1,070 snaps. Roughly 180 competitive snaps had been thrown out, including every first-quarter snap the filter removed all season. Almost 900 snaps from decided games had been kept. The share of plays flagged goes from 10.2% to 10.5%.
+
+For Mississippi State it was three snaps: the Georgia incompletion above, and two in the fourth quarter against Missouri, down 49–24, where the column read −7. All three were garbage time that the filter let through. Taking them out is why the table above reads 0.052 and 0.026.
+
+## The check, run properly
+
+The test itself was a good idea. It just needs inputs it does not share with the thing it is testing. From 2020 through 2024 the margin column is clean — it matches the scoreboard more than 98% of the time — so the win probability built on it is clean too. Here are those five seasons, with the margin rebuilt from the scoreboard:
+
+| Quarter | Margin    | Plays  | Leader's win probability |
+| ------- | --------- | ------ | ------------------------ |
+| 1st     | 21–27     | 1,815  | 97.0%                    |
+| 1st     | 28–34     | 301    | 99.2%                    |
+| 1st     | 35–42     | 34     | 98.5%                    |
+| 1st     | **43+**   | **2**  | —                        |
+| 4th     | 14–20     | 35,014 | 97.6%                    |
+| 4th     | **21–27** | 24,461 | **99.5%**                |
+| 4th     | 28–34     | 16,727 | 99.9%                    |
+
+Two plays. In five seasons.
+
+Two things come out of this, and only one of them is what I said the first time.
+
+**The thresholds are safe.** Past the fourth-quarter cutoff the leader wins 99.5% of the time, and the second- and third-quarter cutoffs land at about the same level. Nothing in the standard definition is throwing away football that was still competitive — as long as the margin it reads is real.
+
+**The first-quarter cutoff never fires.** A 43-point lead inside the first fifteen minutes is something the data almost never contains, so the rule can't be tested and does next to nothing. I originally wrote that it corresponded to 99.95% certainty; that number was measured on plays that did not exist. If you wanted one uniform rule — say, exclude everything above 99% win probability — the first-quarter threshold would sit somewhere near 28 points, not 43. That conclusion survives. The evidence for it is just different now.
 
 So the numbers are reasonable, but they are a convention rather than a derivation. Nobody solved for them. They were chosen because they work, and they have stuck because they work.
 
@@ -112,16 +151,16 @@ So the numbers are reasonable, but they are a convention rather than a derivatio
 
 **Win probability is not the same thing as garbage time.** This is the part that actually matters. The reason to filter is that both teams change how they play. Win probability is a proxy for that, not a measurement of it. A team up 25 in the fourth quarter is already running clock. A team up 25 in the first is still playing normal football. The score is identical and the behavior is not, which is exactly why the thresholds differ by quarter — and it is why a flat win-probability rule would be worse rather than better.
 
-One caveat on the table above: the first-quarter 43+ bucket is 144 plays. That is thin, and the estimate at that extreme is noisy.
-
 ## What this leaves
 
-Two numbers I trust more than I did: MSU's 2025 offense at 0.022 EPA per play against FBS competition in competitive situations, and a filter I have at least argued with instead of inherited silently.
+Two numbers I trust more than I did: MSU's 2025 offense at 0.026 EPA per play against FBS competition in competitive situations, and a filter I have now argued with twice.
+
+The first argument was with the rule, and the rule held up. The second was with the number the rule reads, and that is where the problem was. I would not have found it by thinking harder about thresholds. It turned up when I read Mississippi State's 2026 opener play by play and saw the data report a 25-point margin on the opening snap, with the score 0–0. Checking a rule is not the same as checking what you feed it.
 
 What it does not fix is the schedule. Those FBS opponents included Georgia and Texas A&M, and they also included Northern Illinois. Averaging across them as though they were the same test is the largest remaining problem with every number on this site.
 
-That one needs a model, not a filter. It is the next thing I am building.
+That one needs a model, not a filter. It is the thing I am building toward.
 
 ---
 
-_Data from [cfbfastR](https://github.com/sportsdataverse/cfbfastR), 2020–2025 seasons. Week 0 2026 scores from box score. Garbage time thresholds follow Bill Connelly's convention. Code is on [GitHub](https://github.com/3uLLd0gs)._
+_Data from [cfbfastR](https://github.com/sportsdataverse/cfbfastR), 2020–2025 seasons. Score margin rebuilt from the running score rather than taken from the feed's margin column. Week 0 2026 scores from box score. Garbage time thresholds follow Bill Connelly's convention. Code is on [GitHub](https://github.com/3uLLd0gs)._
