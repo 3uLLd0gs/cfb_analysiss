@@ -1,0 +1,138 @@
+---
+title: 'The Number Underneath the Filter'
+date: '2026-09-14'
+tags: ['epa', 'methods', 'data quality', 'mississippi state', 'garbage time']
+draft: false
+summary: 'Mississippi State beat UL Monroe by 49 points. Filter the game the way I told you to two weeks ago and the two offenses come out identical, to three decimal places. The filter was not wrong. It was sitting on top of something else.'
+---
+
+Mississippi State beat UL Monroe 62-13 on September 5.
+
+Take every scrimmage snap in that game, throw out the garbage time exactly as [I described two weeks ago](/blog/the-plays-that-dont-count), and the two offenses come out at **+0.301** and **+0.302** expected points added per play.
+
+Identical. In a game decided by 49 points.
+
+One of those two things is wrong, and it isn't the scoreboard.
+
+## The filter did what it was supposed to
+
+My first assumption was that the filter had misfired. It hadn't.
+
+Garbage time ate a lot of this game, which is what you would expect — UL Monroe was buried by the second quarter and never came back. Of 146 scrimmage plays, 67 were garbage. Mississippi State's sample fell from 78 snaps to 50, UL Monroe's from 68 to 29.
+
+That is the filter working. The trailing offense piles up snaps against a defense that has stopped caring, those snaps flatter it, and removing them is the whole point. I wrote a thousand words about exactly this.
+
+But look at the direction it moved things:
+
+|                   | before filtering | after filtering |
+| ----------------- | ---------------- | --------------- |
+| Mississippi State | +0.326           | +0.301          |
+| UL Monroe         | +0.232           | **+0.302**      |
+
+The filter pushed UL Monroe **up**, by 0.070. It is supposed to push a blown-out team down. That is its entire reason for existing.
+
+When a correction moves a number the opposite way from the mechanism that justifies it, the correction is not the problem. Something underneath it is.
+
+## Four plays that cannot be true
+
+So I stopped looking at averages and read the plays.
+
+Here are four snaps from UL Monroe's first drive, with the EPA the data assigns them:
+
+| Play                                              | EPA       |
+| ------------------------------------------------- | --------- |
+| Kickoff, 65 yards, touchback                      | **+4.32** |
+| Penalty — ULM false start, 5 yards, NO PLAY       | **+3.08** |
+| 1st and 10, pass complete for 7 yards             | **+4.87** |
+| 4th and 1, pass incomplete, **turnover on downs** | **+2.50** |
+
+A touchback is worth about a third of a point. A false start is worth less than nothing — that is what a penalty is. And a failed fourth-down conversion that hands the ball to the opponent at your own 34 is one of the worst outcomes available in football. It is scored here at two and a half points _in UL Monroe's favour_.
+
+There is no reading of football in which those numbers are right.
+
+Two of those four — the kickoff and the penalty — are not scrimmage plays and never entered the averages at the top of this post. They are here because they are the easiest rows to check by eye, and they point at the same broken thing the scrimmage plays are sitting on.
+
+## Where the bad number actually lives
+
+EPA is a subtraction. It is the expected points after a play minus the expected points before it, and cfbfastR ships all three columns. So the error is in one of the two operands, and it is easy enough to check which.
+
+Before that opening kickoff, with the ball on the 35 and the game scoreless, the file says UL Monroe's expected points were **−2.44**.
+
+Expected points is a function of field position, down, and distance. At the start of a drive at your own 35 it is somewhere around **+0.9** — you have the ball, and having the ball is worth something. A value of −2.44 says the team receiving the kickoff is expected to concede two and a half points before it next scores, which is roughly what you would expect if it were backed up on its own one-yard line, on fourth down, in a hurricane.
+
+Every play that inherits that baseline gets an inflated EPA. The subtraction is fine. The starting number is garbage.
+
+## Counting it without trusting the order
+
+The tempting next step is to find the bad drives by walking the game in order and looking for jumps. I tried that first and it sent me down a false trail — the column I sorted by restarts at 1 on every drive, so I spent twenty minutes convinced a single game contained four opening kickoffs.
+
+The check that actually works makes no assumption about ordering at all. Expected points before a snap should be a function of the game state and nothing else: same down, same distance, same field position, same number. So build a reference from seasons known to be clean, then ask how often a season falls outside it.
+
+I built the reference from 2020 through 2024, bucketing by down, distance, and field position in five-yard bins, keeping only buckets with at least 100 plays, and taking the range from the 0.5th to the 99.5th percentile. Then I scored every season against it.
+
+| Season   | Plays outside the reference range | The median game |
+| -------- | --------------------------------- | --------------- |
+| 2020     | 0.63%                             | 0.00%           |
+| 2021     | 1.03%                             | 0.00%           |
+| 2022     | 1.05%                             | 0.00%           |
+| 2023     | 0.89%                             | 0.00%           |
+| 2024     | 0.86%                             | 0.00%           |
+| 2025     | 1.23%                             | 0.00%           |
+| **2026** | **5.79%**                         | **2.52%**       |
+
+2025 is the honest test there — it played no part in building the reference and scores 1.23%, right alongside the years that did. 2026 is nearly five times worse than the worst season before it.
+
+The second column matters more than the first. In every previous season, including the dirty-ish ones, **the median game is perfectly clean** — the bad rows pile up in a handful of broken games you could simply drop. In 2026 the median game is 2.52% contaminated. It is not a few bad games. It is everywhere, a little.
+
+## Two ways I tried to talk myself out of it
+
+A filter that improves every number it touches should make you suspicious of the filter. Mine drops the extreme tails of a distribution, and dropping tails moves means around almost by definition.
+
+So, the first check: apply the identical trim to the seasons I have no reason to doubt. If it is a real defect, removing it should barely move a clean season.
+
+It moves league-wide EPA by **0.001 or less** in every season from 2020 to 2025 — and in four of those six the shift is smaller than 0.0003. In 2026 it moves it by 0.002. Whatever the flagged rows are, at league scale they are noise that cancels, not a thumb on the scale.
+
+Second check: does the correction have a _direction_? For every team-game with at least 30 snaps, I compared how much the correction moved a team's EPA against how good that team's corrected EPA was.
+
+| Season    | Correlation | Average shift to a team's game EPA | 90th percentile |
+| --------- | ----------- | ---------------------------------- | --------------- |
+| 2020–2024 | 0.19 – 0.27 | 0.004 – 0.006                      | 0.000 – 0.005   |
+| 2025      | 0.29        | 0.008                              | 0.010           |
+| **2026**  | **0.54**    | **0.054**                          | **0.173**       |
+
+In a normal season the correction is worth half a hundredth of a point and has no real direction. In 2026 it is worth ten times that, and it leans hard: the defect **compresses the gap between good and bad offenses**. It drags good ones down and props bad ones up.
+
+Which is the same direction as garbage time. That is why filtering garbage time alone made this game look _worse_ — I removed one mechanism that flatters bad offenses while leaving a second, larger one untouched, and the second one was strong enough to reverse the first.
+
+## The game, read three ways
+
+<Image
+  src="/static/images/msu-ulm-three-reads.png"
+  alt="Slopegraph showing EPA per play for Mississippi State and UL Monroe across three stages. As published, MSU is at +0.326 and ULM at +0.232. After removing garbage time the lines converge at +0.301 and +0.302. After also removing plays with corrupt expected-points baselines, MSU rises to +0.570 and ULM falls to +0.075."
+  width={1666}
+  height={1260}
+/>
+
+The middle column is the one worth sitting with. It is the number I would have published two weeks ago, using a method I had already written up and defended, and it says a 49-point win was an even fight.
+
+The right-hand column says Mississippi State averaged **+0.570** expected points per snap against UL Monroe's **+0.075** — a gap of about half a point per play, which is roughly what a 62-13 result ought to look like from the inside.
+
+## What I am not claiming
+
+The right-hand column is the best read available, not the truth.
+
+I am **dropping** bad rows, not repairing them. A repaired number would need an expected-points model of my own, which is a much larger project than a weekly post. Dropping is the crude option, and it is only defensible because the dropped rows cancel out at scale.
+
+And it costs sample. Mississippi State's 78 snaps become 50 after garbage time and **40** after this; UL Monroe's 68 become **27**. Twenty-seven plays is not enough to characterise an offense. Read +0.570 and +0.075 as "these two offenses were far apart," not as measurements — the error bars on 27 snaps swallow most of the third decimal place, and probably the second.
+
+There is also a worse possibility I cannot currently rule out. If the corrupt rows within a single game are not random — if they cluster on particular drives or particular situations — then dropping them biases the game even while cancelling across the league. The league-scale control I ran cannot see that. Checking it properly means reconstructing expected points independently, and that is the next thing worth building.
+
+## What changes
+
+For anything at season scale, nothing. The bad rows cancel; every full-season number I have published still stands.
+
+For single games and single weeks in 2026, quite a lot. An average shift of 0.054 with a 90th percentile of 0.173 is larger than most of the differences a weekly post would want to talk about. A 2026 game read straight off the published EPA column can tell you the wrong team played better — and in Mississippi State's next game, against Minnesota, it does exactly that.
+
+That one is worth its own post.
+
+The flag now lives in the pipeline as `ep_suspect`, alongside the garbage-time flag, and every 2026 number I publish from here will have both applied. I would rather show the filter than quietly apply it — which is the same reason the middle column is still on that chart.
