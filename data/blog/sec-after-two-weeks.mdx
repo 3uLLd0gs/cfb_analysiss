@@ -1,0 +1,130 @@
+---
+title: 'The SEC After Two Weeks'
+date: '2026-09-15'
+tags: ['sec', 'success rate', 'epa', '2026', 'snapshot']
+draft: false
+summary: "Two weeks is not much football, and for half the league it's one game that counts. Here's what each SEC team has done against FBS opponents so far: success rate, yards per play, EPA, and each offense's most-targeted receiver."
+---
+
+Two weeks is not much football. Before looking at any numbers, here's how to read them.
+
+- **Only games against FBS opponents count.** Half the league played an FCS team in the first two weeks, so eight SEC teams are working from a single game.
+- **Garbage time is removed**, using the [same rule as always](/blog/the-plays-that-dont-count). Some of these teams got to garbage time very early.
+- **Success rate is the number to trust most.** It doesn't depend on expected points, and one long play can't swing it the way it swings yards per play. Look at the **Plays** column before believing any row.
+
+## The picture so far
+
+<Image
+  src="/static/images/sec-snapshot-2026.png"
+  alt="Scatter plot of the 16 SEC teams, offensive success rate on the x-axis and defensive success rate allowed on the y-axis, flipped so up is better. Georgia and South Carolina sit furthest right, each off one FBS game. LSU sits far above everyone else on defense. Mississippi State is the furthest right of the teams with two FBS games, just below the defensive median. Arkansas and Kentucky are in the bottom left. Teams with one FBS game are drawn as hollow circles."
+  width={1700}
+  height={1460}
+/>
+
+Right is better offense, and up is better defense. Hollow circles are teams with one FBS game, so read those with extra caution.
+
+## Games counted
+
+| Team              | FBS games                                    |
+| ----------------- | -------------------------------------------- |
+| Alabama           | W 48-10 East Carolina, W 45-17 Kentucky      |
+| Arkansas          | L 10-43 Utah                                 |
+| Auburn            | W 17-16 Baylor, W 43-8 Southern Miss         |
+| Florida           | W 66-21 Florida Atlantic                     |
+| Georgia           | W 70-20 Western Kentucky                     |
+| Kentucky          | L 17-45 Alabama                              |
+| LSU               | W 51-10 Clemson, W 45-14 Louisiana Tech      |
+| Mississippi State | W 62-13 UL Monroe, W 38-13 Minnesota         |
+| Missouri          | W 38-21 Kansas                               |
+| Oklahoma          | L 10-17 Michigan, W 51-0 UTEP                |
+| Ole Miss          | W 41-38 Louisville, W 41-9 Charlotte         |
+| South Carolina    | W 57-0 Kent State                            |
+| Tennessee         | W 45-24 Georgia Tech                         |
+| Texas             | W 24-23 Ohio State, W 59-7 Texas State       |
+| Texas A&M         | W 48-20 Arizona State, W 50-0 Missouri State |
+| Vanderbilt        | W 35-26 Delaware                             |
+
+## Offense
+
+| Team              | FBS games | Plays | Success rate | Yards/play | EPA/play |
+| ----------------- | --------- | ----- | ------------ | ---------- | -------- |
+| Georgia           | 1         | 25    | **72%**      | 12.2       | +0.81    |
+| South Carolina    | 1         | 35    | 66%          | 10.3       | +0.73    |
+| Mississippi State | 2         | 103   | 61%          | 8.4        | +0.51    |
+| Florida           | 1         | 40    | 57%          | 9.9        | +0.49    |
+| Ole Miss          | 2         | 119   | 53%          | 6.9        | +0.18    |
+| Alabama           | 2         | 103   | 51%          | 6.2        | +0.13    |
+| Texas             | 2         | 119   | 50%          | 5.8        | +0.21    |
+| Texas A&M         | 2         | 118   | 47%          | 5.3        | −0.00    |
+| LSU               | 2         | 123   | 46%          | 6.4        | −0.13    |
+| Tennessee         | 1         | 66    | 45%          | 6.8        | +0.27    |
+| Auburn            | 2         | 132   | 44%          | 5.8        | +0.04    |
+| Vanderbilt        | 1         | 63    | 41%          | 5.6        | −0.04    |
+| Oklahoma          | 2         | 95    | 41%          | 5.8        | −0.06    |
+| Missouri          | 1         | 68    | 37%          | 6.9        | +0.19    |
+| Kentucky          | 1         | 58    | 31%          | 3.4        | −0.57    |
+| Arkansas          | 1         | 41    | 29%          | 3.8        | −0.01    |
+
+- **Georgia and South Carolina top the table on 25 and 35 plays.** Georgia's game against Western Kentucky reached garbage time in the second quarter, and South Carolina's against Kent State in the third. It's a good start and a tiny sample.
+- **Mississippi State has the best success rate of any team with two FBS games**, at 61% on 103 plays. The next is Ole Miss at 53%.
+- **LSU is the clearest case of success rate and EPA disagreeing.** LSU was successful on 46% of plays, right at the league median, but its EPA is negative. It threw four interceptions and lost a fumble before garbage time, including a pick-six returned 100 yards by Louisiana Tech. Turnovers are expensive in expected points, and LSU still won both games by 30-plus.
+- **Kentucky's only FBS game was Alabama, and Arkansas's was a trip to Utah.** Those numbers say as much about the opponent as the offense.
+
+## Defense
+
+Lower is better in every column here.
+
+| Team              | Plays faced | Success rate allowed | Yards/play allowed | EPA/play allowed |
+| ----------------- | ----------- | -------------------- | ------------------ | ---------------- |
+| LSU               | 59          | **8%**               | 1.1                | −0.82            |
+| Georgia           | 26          | 19%                  | 1.6                | −0.21            |
+| South Carolina    | 32          | 28%                  | 3.8                | −0.02            |
+| Missouri          | 63          | 30%                  | 4.2                | −0.02            |
+| Alabama           | 75          | 31%                  | 4.0                | −0.47            |
+| Texas A&M         | 79          | 32%                  | 5.3                | −0.16            |
+| Vanderbilt        | 66          | 33%                  | 5.1                | −0.01            |
+| Oklahoma          | 89          | 34%                  | 4.4                | −0.11            |
+| Mississippi State | 87          | 37%                  | 3.7                | +0.01            |
+| Florida           | 57          | 39%                  | 4.3                | +0.18            |
+| Texas             | 98          | 39%                  | 6.1                | +0.13            |
+| Auburn            | 138         | 39%                  | 4.5                | −0.15            |
+| Ole Miss          | 112         | 43%                  | 6.6                | +0.15            |
+| Tennessee         | 71          | 46%                  | 5.0                | −0.14            |
+| Kentucky          | 59          | 49%                  | 5.7                | −0.02            |
+| Arkansas          | 36          | 61%                  | 9.3                | +0.39            |
+
+- **LSU's defense is the standout number in the league.** Clemson and Louisiana Tech ran 59 plays against it before garbage time, and **5 of them succeeded**. That's a small sample, since both games got out of hand, but those two offenses barely moved the ball.
+- **Mississippi State allowed 37%**, slightly worse than the SEC median of about 35%, while giving up only 3.7 yards per play.
+- **Auburn has faced the most plays in the league**, 138. Baylor alone ran 96, and because Auburn's 17-16 win never reached garbage time, all of them count.
+- **Arkansas allowed 61%** at Utah, the worst mark in the SEC by a wide margin.
+
+## Most-targeted receiver
+
+Yards per route run would be the better stat, but routes run aren't in the play-by-play data. They come from people charting every snap on film. Yards per target is the closest thing available.
+
+| Team              | Receiver            | Targets | Catches | Yards   | Yards/target |
+| ----------------- | ------------------- | ------- | ------- | ------- | ------------ |
+| Alabama           | R. Coleman-Williams | 6       | 4       | 43      | 7.2          |
+| Arkansas          | C. Marshall         | 4       | 1       | 24      | 6.0          |
+| Auburn            | K. Singleton        | 15      | 9       | 113     | 7.5          |
+| Florida           | V. Brown III        | 5       | 4       | 66      | 13.2         |
+| Georgia           | L. Humphreys        | 4       | 2       | 11      | 2.8          |
+| Kentucky          | W. Rodriguez        | 8       | 7       | 48      | 6.0          |
+| LSU               | W. Watkins Jr.      | 15      | 8       | 99      | 6.6          |
+| Mississippi State | A. Evans III        | **17**  | 12      | **223** | 13.1         |
+| Missouri          | D. Olugbode         | 9       | 6       | 121     | **13.4**     |
+| Oklahoma          | I. Sategna III      | 15      | 6       | 85      | 5.7          |
+| Ole Miss          | D. Alexander        | 12      | 11      | 111     | 9.2          |
+| South Carolina    | N. Harbor           | 5       | 4       | 58      | 11.6         |
+| Tennessee         | M. Matthews         | 5       | 2       | 16      | 3.2          |
+| Texas             | R. Wingo            | 13      | 10      | 135     | 10.4         |
+| Texas A&M         | I. Horton           | 15      | 7       | 109     | 7.3          |
+| Vanderbilt        | J. Sherrill         | 12      | 5       | 94      | 7.8          |
+
+- **Anthony Evans III leads the SEC in targets (17) and receiving yards (223)** in these games. Among receivers with 10 or more targets, only LSU's T. Green gets more per target: 152 yards on 11, or 13.8.
+- **Four receivers have 15 targets:** K. Singleton, W. Watkins Jr., I. Sategna III and I. Horton. Sategna's 6 catches for 85 yards is a lot of looks for not much.
+- **Alabama's most-targeted receiver has only 6 targets** across two games. Nobody on that offense is getting a big share of the throws yet.
+
+---
+
+_How these numbers are built: scrimmage plays only, with kneels and spikes removed, against FBS opponents. Garbage time uses Bill Connelly's quarter-by-quarter margins. Success rate: a play succeeds if it gains 50% of the distance on first down, 70% on second, or 100% on third or fourth, and turnovers always fail. Yards per play leaves out turnover return yardage, which the raw data credits to the offense. Some plays in the 2026 data have unreliable expected-points values, so they are left out of EPA but kept everywhere else. Targets are complete and incomplete passes to a named receiver. Data from cfbfastR._

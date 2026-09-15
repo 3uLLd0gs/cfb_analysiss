@@ -1,12 +1,17 @@
 {
-  "epa": 4,
+  "2026": 3,
+  "epa": 8,
   "explainer": 4,
-  "mississippi-state": 4,
-  "sec": 2,
-  "garbage-time": 1,
-  "methods": 1,
+  "mississippi-state": 7,
+  "sec": 3,
+  "success-rate": 1,
+  "snapshot": 1,
+  "methods": 2,
+  "data-quality": 1,
+  "garbage-time": 2,
   "defense": 1,
   "roster-construction": 1,
   "explosiveness": 1,
-  "isoppp": 1
+  "isoppp": 1,
+  "game-summary": 2
 }
