@@ -1,9 +1,9 @@
 {
-  "2026": 3,
-  "epa": 8,
+  "2026": 4,
+  "epa": 9,
   "explainer": 4,
-  "mississippi-state": 7,
-  "sec": 3,
+  "mississippi-state": 8,
+  "sec": 4,
   "success-rate": 1,
   "snapshot": 1,
   "methods": 2,
@@ -13,5 +13,5 @@
   "roster-construction": 1,
   "explosiveness": 1,
   "isoppp": 1,
-  "game-summary": 2
+  "game-summary": 3
 }
