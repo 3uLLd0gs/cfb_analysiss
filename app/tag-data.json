@@ -1,11 +1,11 @@
 {
-  "2026": 5,
-  "epa": 9,
+  "2026": 6,
+  "epa": 10,
   "explainer": 4,
-  "mississippi-state": 9,
-  "sec": 5,
+  "mississippi-state": 10,
+  "sec": 6,
   "scouting": 1,
-  "missouri": 1,
+  "missouri": 2,
   "success-rate": 2,
   "snapshot": 1,
   "methods": 2,
@@ -15,5 +15,5 @@
   "roster-construction": 1,
   "explosiveness": 1,
   "isoppp": 1,
-  "game-summary": 3
+  "game-summary": 4
 }
