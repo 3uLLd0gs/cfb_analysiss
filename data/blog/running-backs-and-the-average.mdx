@@ -1,0 +1,169 @@
+---
+title: 'What a Running Back Average Hides'
+date: '2026-10-02'
+tags: ['explainer', 'running backs', 'mississippi state', 'sec', 'epa', '2026']
+draft: false
+summary: 'Runs from under center succeed more often than runs from the shotgun. That is true, and it means nothing. The same trick is hiding inside yards per carry, and once you take it apart you can tell two kinds of good running back apart.'
+---
+
+Here is a fact about this season: across 12,213 runs against FBS defenses, with garbage time removed, runs from under center succeeded 48.9% of the time and runs from the shotgun succeeded 42.5% of the time.
+
+A six-point gap is large. It is also entirely an illusion, and taking it apart is the most useful thing I can show you about running the football.
+
+The same illusion lives inside yards per carry, which is the number everyone uses to describe a running back. Once it is pulled apart, the stat stops describing one skill and starts describing two — and the two have almost nothing to do with each other.
+
+## The gap that is not there
+
+Nine of every ten runs this season came from the shotgun. The other tenth, the ones with no shotgun marker in the play-by-play, look better by almost every efficiency measure that matters.
+
+<Image
+  src="/static/images/rb-2026-gun-success.png"
+  alt="Bar chart comparing success rate on runs. Runs not from the shotgun, 1,208 of them, succeed 48.9 percent of the time. Runs from the shotgun, 11,005 of them, succeed 42.5 percent of the time."
+  width={1392}
+  height={836}
+/>
+
+Under center also produced more expected points per play (+0.124 against +0.047). The one measure that went the other way was raw yardage: shotgun runs averaged 5.07 yards, under-center runs 4.35.
+
+So: fewer yards, but more of them useful. That is a tidy story about leverage and downhill running, and you could write a thousand words on it before noticing it is false.
+
+Here is the same statistic, split by how far there was to go.
+
+<Image
+  src="/static/images/rb-2026-gun-by-distance.png"
+  alt="Grouped bar chart of success rate by distance to go. On short runs of one to two yards, not-shotgun succeeds 71 percent and shotgun 74 percent. On medium runs of three to six yards, both succeed about 50 percent. On long runs of seven or more yards, not-shotgun succeeds 36 percent and shotgun 35 percent. Short runs are 29 percent of under-center runs but only 12 percent of shotgun runs."
+  width={1376}
+  height={870}
+/>
+
+Inside every bucket the two are the same. On short yardage the shotgun is actually **better** — 73.5% against 71.0%. In the middle they are identical to within a tenth of a point. On long yardage they are identical again.
+
+The entire six-point gap came from the mix. **Under-center runs are short-yardage runs 29.1% of the time; shotgun runs are short-yardage runs 12.1% of the time.** Under center shows up on third-and-one, where almost three-quarters of runs succeed by definition of the down. The shotgun shows up on second-and-nine, where barely a third do.
+
+This is Simpson's paradox, and it is not a curiosity — it is the default condition of football data. Formation is not randomly assigned. Nothing in football is randomly assigned. Teams choose a look because of the situation, so any average that pools situations is measuring the choices, not the thing chosen.
+
+The honest version of the finding is boring, which is how you know it is the honest version: **the formation a team runs from tells you almost nothing about whether the run will work.** What tells you is the distance.
+
+## Mississippi State has not lined up under center all year
+
+Worth saying plainly, since the Bulldogs are the reason I built any of this: **Mississippi State has run the ball 114 times this season and not once from under center.** Zero.
+
+|                       | Runs | From shotgun | Success rate | Yards per carry |
+| --------------------- | ---- | ------------ | ------------ | --------------- |
+| **Mississippi State** | 114  | **100%**     | **55.3%**    | 6.11            |
+| Alabama               | 111  | 66%          | 52.3%        | 6.17            |
+| Army                  | 104  | 51%          | 51.9%        | 4.97            |
+| Air Force             | 119  | 37%          | 45.4%        | 4.90            |
+
+That ordering is the point. The team that never lines up under center has the best run success rate of the four, and the two service academies that line up under center most often are at the bottom. Four teams is not evidence of anything, but it is enough to kill the folk version of the claim.
+
+## Yards per carry is two statistics wearing one coat
+
+Now the same problem, one level down.
+
+A back who carries 20 times for 100 yards averages five a carry. So does a back who gains four yards nineteen times and then 24 once. They are not the same player and they are not useful in the same way, and yards per carry cannot tell them apart.
+
+Bill Connelly's fix is to split the carry in two. **Opportunity rate** is the share of carries that gain at least four yards — did the blocking and the first cut produce something. **Highlight yards per opportunity** is how far he went beyond those four yards when he got them — what he did once he was free. The first is mostly consistency. The second is mostly explosiveness.
+
+Plotted against each other, for the 23 backs with 50 or more carries:
+
+<Image
+  src="/static/images/rb-2026-opp-highlight.png"
+  alt="Scatter plot of opportunity rate against highlight yards per opportunity for 23 running backs. Mississippi State's F. Bothwell sits at high opportunity rate near 60 percent with modest highlight yards around 4.4. Duke's N. Sheppard sits at lower opportunity rate near 47 percent with the highest highlight yards near 8. Baylor's D. Pendergrass has a high opportunity rate but the lowest highlight yards at 2.5. LSU's D. Jones has the lowest opportunity rate near 39 percent with high highlight yards."
+  width={1674}
+  height={1177}
+/>
+
+The corners are four different jobs:
+
+- **Fluff Bothwell** (Mississippi State) — 60% opportunity rate, second-highest in the group, with 4.36 highlight yards. He gets you four yards more reliably than almost anyone and then gets tackled.
+- **N. Sheppard** (Duke) — 47% opportunity rate, 7.97 highlight yards, the highest. Less reliable, but when he is through the line he is gone. 23% of his carries went for 10+ and 42% of his yards came on runs of 15+.
+- **D. Pendergrass** (Baylor) — 53% opportunity rate, 2.47 highlight yards, the lowest in the group by a distance. He gets to four yards and that is the end of the play. 4% of his carries reached 10 yards.
+- **D. Jones** (LSU) — 39% opportunity rate, the lowest, with 6.41 highlight yards. Stuffed on 20% of carries. Feast or famine.
+
+Pendergrass and Sheppard average 3.84 and 6.36 yards a carry. That gap is real. But it is not a gap in ability to find four yards — Pendergrass is **better** at that. It is entirely a gap in what happens afterwards.
+
+## The median says it faster
+
+There is a cruder way to see the same thing, and it needs no new concepts at all: compare each back's mean yards per carry to his median.
+
+<Image
+  src="/static/images/rb-2026-mean-median.png"
+  alt="Dumbbell chart of 23 running backs showing median and mean yards per carry, sorted by the gap between them. Baylor's D. Pendergrass has a median of 4.0 above his mean of 3.84. Duke's N. Sheppard has a median of 3.0 and a mean of 6.36, the largest gap. Mississippi State's F. Bothwell has a median of 4.0 and a mean of 5.51."
+  width={1453}
+  height={1457}
+/>
+
+The mean is pulled around by the longest run. The median is the carry in the middle — the one that actually happens.
+
+Sheppard's median carry is **three yards**. His mean is 6.36. The difference between those two numbers is his whole value: a typical Sheppard carry is unremarkable and the average is carried by the tail.
+
+Pendergrass is the only back in the group whose median (4.0) is **higher** than his mean (3.84). He has no tail at all. Every carry is the same carry.
+
+Bothwell sits at a median of 4.0 against a mean of 5.51 — a tighter spread than the explosive backs, a higher floor than almost anyone.
+
+If you only ever learn one thing from this post, let it be this: **when a mean and a median disagree, the median is describing the player and the mean is describing his best day.**
+
+## Yards above what the situation deserved
+
+One more. All of the above still treats a carry on third-and-one from the opponent's three the same as a carry on second-and-nine from his own 20. They are not the same carry, and a back who gets a lot of one kind will look different from one who gets a lot of the other.
+
+So I built an expectation. For every combination of down, distance bucket and field position, I took the league-average yards per carry — 33 situation cells, averaging 370 carries each. Then each back's **rushing yards over expected** is simply what he gained above the average back in the same spots. Formation is deliberately left out of the expectation, so nobody is credited or penalised for the scheme he runs in.
+
+<Image
+  src="/static/images/rb-2026-ryoe.png"
+  alt="Horizontal bar chart of rushing yards over expected per carry for 23 running backs. Florida's J. Baugh leads at plus 1.90, followed by Boise State's D. Riley at plus 1.26 and Duke's N. Sheppard at plus 1.25. Mississippi State's F. Bothwell is at plus 0.47. Baylor's D. Pendergrass is last at minus 0.99."
+  width={1413}
+  height={1417}
+/>
+
+J. Baugh of Florida is the clear leader at **+1.90 yards per carry above expectation**. Bothwell is +0.47. Pendergrass is last at −0.99, which is the same story his highlight yards told: he meets the situation and never beats it.
+
+This is the single most complete rushing number of the set, and it is also the one to trust least far, because it inherits every bias in the schedule. Baugh has faced the defenses Florida has faced. There is no opponent adjustment anywhere in this post.
+
+## The part of the job nobody counts
+
+Running backs catch passes, and the play-by-play records where the ball was caught, so I can describe that too — and it turns out to be a different job entirely.
+
+| Back                                | Targets | Average depth of target | Receiving yards | Of those, after the catch |
+| ----------------------------------- | ------- | ----------------------- | --------------- | ------------------------- |
+| D. Rice (Hawai'i)                   | 19      | +0.8                    | 54              | 60                        |
+| J. Thomas (UNLV)                    | 17      | +2.7                    | 106             | 72                        |
+| J. Payne (TCU)                      | 17      | −1.1                    | 57              | 65                        |
+| A. Mohammed (California)            | 16      | +0.5                    | 75              | 71                        |
+| **F. Bothwell** (Mississippi State) | **11**  | **+1.2**                | **96**          | **84**                    |
+| D. Jones (LSU)                      | 11      | −2.7                    | 43              | 62                        |
+
+Look at the depth column. Several of these are **negative** — the ball is caught behind the line of scrimmage. D. Jones is targeted an average of 2.7 yards _behind_ the line.
+
+Which means the "after the catch" column can exceed the total, and for twelve of the 23 it does. That is not an error; it is what a screen is. A back's receiving yards are not really receiving yards. They are rushing yards that started with a forward pass, and measuring them with receiver statistics gets you numbers above 100%.
+
+Bothwell is the cleanest case of a back used well this way: 11 targets, 9 caught, 96 yards, and **84 of those 96 came after the catch**.
+
+## So what is Fluff Bothwell
+
+Pulling it together, because he is the reason I went looking:
+
+|                         |                                                                         |
+| ----------------------- | ----------------------------------------------------------------------- |
+| Carries                 | 73 — **84% of every non-quarterback carry Mississippi State has taken** |
+| Yards per carry         | 5.51 (median 4.0)                                                       |
+| Opportunity rate        | **60%** — 2nd of 23                                                     |
+| Highlight yards         | 4.36 — 16th of 23                                                       |
+| Stuffed                 | 14%                                                                     |
+| Yards over expected     | +0.47                                                                   |
+| Up the middle / outside | **5.75** / 4.63 yards per carry                                         |
+| From the shotgun        | **100%**                                                                |
+| EPA per touch           | **+0.283 — 1st of 23**                                                  |
+
+Two of those deserve a second look.
+
+**He is better inside than outside**, 5.75 against 4.63. Most backs in this group are the reverse — Sheppard gains 4.59 up the middle and 7.84 outside; West Virginia's C. Cook gains 5.58 inside and 2.06 outside. A back who is genuinely more productive between the tackles is unusual, and it fits a team that runs up the middle on most of its carries.
+
+**He leads all 23 qualifying backs in EPA per touch**, counting carries and targets together. That is the closest thing here to a single summary of value, and the back with the highest floor in the group also sits on top of it.
+
+What he is not is a home-run threat. 12% of his carries reached 10 yards; Sheppard's reached 23%. If Mississippi State needs 40 yards on one play, that is Kamario Taylor's arm, not this. What Bothwell does is make the next play smaller — and across 84 touches, that has been worth more than anybody else's highlight reel.
+
+---
+
+_How these numbers are built: 2026 only, scrimmage plays, FBS opponents both ways, garbage time removed, kneels and spikes excluded. Player names, run direction and formation come from parsing the play-by-play text, which carries them for 97–99% of 2026 runs; earlier seasons do not carry them at all, so there is no multi-year comparison here. A ball carrier who has thrown a pass or taken a sack is treated as a quarterback and excluded, which is why these are 23 backs and not more. Success rate: a play succeeds if it gains 50% of the needed yards on first down, 70% on second, or 100% on third or fourth. Opportunity rate and highlight yards follow Bill Connelly's definitions, with the threshold at four yards. Yards over expected uses a league-average baseline across 33 cells of down, distance and field position; cells with fewer than 40 carries are excluded, which drops 0.7% of carries. EPA on a target is the expected points added by the whole play, not a measure of the back alone. Average depth of target and yards after catch are derived from the catch spot in the play description. **There is no opponent adjustment in any of this**, and four or five games is a small sample for a player-level number. Data from cfbfastR._
