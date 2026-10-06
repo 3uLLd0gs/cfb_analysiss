@@ -1,12 +1,12 @@
 {
-  "epa": 12,
+  "epa": 13,
   "explainer": 5,
-  "mississippi-state": 12,
-  "sec": 8,
+  "mississippi-state": 13,
+  "sec": 9,
   "running-backs": 1,
-  "2026": 8,
+  "2026": 9,
   "scouting": 2,
-  "alabama": 1,
+  "alabama": 2,
   "missouri": 2,
   "success-rate": 2,
   "snapshot": 1,
@@ -17,5 +17,5 @@
   "roster-construction": 1,
   "explosiveness": 1,
   "isoppp": 1,
-  "game-summary": 4
+  "game-summary": 5
 }
