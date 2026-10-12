@@ -1,0 +1,139 @@
+---
+title: 'What Field Position Is Actually Worth'
+date: '2026-10-12'
+tags: ['explainer', 'field position', 'mississippi state', 'sec', '2026']
+draft: false
+summary: 'A yard of field position is worth about four hundredths of a point. That sounds like nothing until you add up a season of them. Here is the value curve, where good field position actually comes from, where all sixteen SEC teams sit, and why Mississippi State keeps starting behind.'
+---
+
+Every broadcast says it and nobody measures it: _the field position battle_. It is the most repeated unquantified claim in football.
+
+It is also measurable, and the measurement is not complicated. Take every drive, note where it started, and see how many points came of it. Do that across a season and you get a price list for field position.
+
+## The price of a yard
+
+<Image
+  src="/static/images/fp-2026-value-curve.png"
+  alt="Bar chart of points per drive by starting field position. Drives starting inside the own 10 produce 1.34 points. The figure climbs steadily: 1.72 from the own 10s, 2.11 from the own 20s, 2.48 from the own 30s, 2.80 from the own 40s, 3.34 from midfield, 3.61 from the opponent 40s, 4.24 from the opponent 30s and 5.47 from the opponent 20s."
+  width={1500}
+  height={894}
+/>
+
+This is 5,519 drives against FBS opposition with garbage time removed. The line is almost perfectly straight, and the fitted slope is **0.0425 points per yard — about 0.43 points for every ten yards.**
+
+| Drive started | Points per drive | Touchdown rate |
+| ------------- | ---------------- | -------------- |
+| Inside own 10 | 1.34             | 17%            |
+| Own 10s       | 1.72             | 21%            |
+| Own 20s       | 2.11             | 26%            |
+| Own 30s       | 2.48             | 30%            |
+| Own 40s       | 2.80             | 33%            |
+| Midfield      | 3.34             | 41%            |
+| Opponent 40s  | 3.61             | 42%            |
+| Opponent 30s  | 4.24             | 50%            |
+| Opponent 20s  | **5.47**         | 67%            |
+
+A drive that starts inside the opponent's 20 is worth roughly **four more points** than one starting inside your own 10. Not four more points of hope — four more points, on average, every time it happens.
+
+Two honest caveats. The final bucket in the chart, inside the opponent's 10, dips slightly, and it is only 29 drives — ignore it. And at the level of a single drive, field position explains almost nothing: the R² is 0.05. Where you start does not determine what happens. It just tilts the table, and a season is a lot of tilting.
+
+## Where good field position actually comes from
+
+Here is the part I did not expect.
+
+<Image
+  src="/static/images/fp-2026-sources.png"
+  alt="Horizontal bar chart of average starting yard line by how the drive began. After a takeaway, teams start at their own 42.9 and score 2.82 points per drive. After a missed field goal they start at own 25.9. On an opening possession, own 25.3. After a punt, own 25.2. After a kickoff, own 25.2."
+  width={1480}
+  height={817}
+/>
+
+Four of the five ways a drive can begin produce **essentially the same starting point: the 25-yard line.** After a punt, own 25.2. After a kickoff, own 25.2. Opening possession, own 25.3. After a missed field goal, own 25.9.
+
+That is not a coincidence, it is the touchback rule. Half of all kickoffs this season were touchbacks, and the touchback spots the ball at the 25. The kick return — once the most exciting play in football and a genuine source of hidden yards — has been legislated into a rounding error. A quarter of all drives in this data started at exactly the 25.
+
+And then there is the fifth way:
+
+**After a takeaway, teams start at their own 42.9.** That is roughly eighteen yards better than every other possession type, and it converts to 2.82 points per drive.
+
+So "winning the field position battle" is mostly not about punting, and it is almost entirely not about returns. It is about taking the ball away. Across all 138 FBS teams, net field position correlates with turnover margin at **r = 0.57** — strong, though it still leaves about two-thirds of the variation to everything else.
+
+The one place punting genuinely shows up is on the other side of the ledger: a punt that pins an opponent deep does not change _your_ starting spot, it changes _theirs_. Which is why the honest version of this stat is a net.
+
+## The SEC, net
+
+<Image
+  src="/static/images/fp-2026-sec-net.png"
+  alt="Horizontal bar chart of net field position for all sixteen SEC teams. Georgia leads at plus 12.2 yards, then Missouri at plus 11.6 and Alabama at plus 8.4. Mississippi State is thirteenth at minus 2.8. Oklahoma is last at minus 9.2."
+  width={1456}
+  height={1257}
+/>
+
+Net field position is where your offense starts, on average, minus where your opponents start. Positive means you are playing on a shorter field than they are.
+
+|                       | Net       | Turnover margin |
+| --------------------- | --------- | --------------- |
+| Georgia               | **+12.2** | +7              |
+| Missouri              | +11.6     | +7              |
+| Alabama               | +8.4      | **+12**         |
+| Florida               | +7.6      | +3              |
+| LSU                   | +6.0      | −1              |
+| Texas A&M             | +4.8      | −4              |
+| Tennessee             | +4.6      | +8              |
+| Vanderbilt            | +4.5      | −6              |
+| Texas                 | +1.4      | −2              |
+| Arkansas              | +0.2      | −3              |
+| Kentucky              | −1.1      | +5              |
+| Auburn                | −1.5      | −1              |
+| **Mississippi State** | **−2.8**  | −1              |
+| Ole Miss              | −4.2      | −1              |
+| South Carolina        | −5.7      | −6              |
+| Oklahoma              | −9.2      | −4              |
+
+Georgia starts its drives **21.4 yards** closer to the end zone than Oklahoma does, relative to opponents. At 0.0425 points a yard that is about **0.91 points per drive**, or something like nine points a game at ten drives apiece. That is a touchdown and a field goal of advantage, before anyone runs a play.
+
+The turnover column mostly tracks, and the exceptions are the interesting part. Kentucky is +5 in turnovers and still _negative_ in field position — they take the ball away and give the territory straight back. Vanderbilt is −6 in turnovers and +4.5 in field position, which means they are winning it some other way. Alabama has the best turnover margin in the league by a distance and sits third, not first.
+
+## Mississippi State
+
+<Image
+  src="/static/images/mississippi-state-fp-by-week.png"
+  alt="Grouped bar chart of Mississippi State field position by week. Week 1 against UL Monroe, MSU started at its own 31.3 and the opponent at 23.7, a margin of plus 7.6. Week 2 at Minnesota, 16.5 against 23.9, minus 7.4. Week 3 at South Carolina, 34.3 against 26.7, plus 7.7. Week 4 against Missouri, 23.0 against 35.0, minus 12.0. Week 5 against Alabama, 28.2 against 35.6, minus 7.4."
+  width={1492}
+  height={899}
+/>
+
+Mississippi State is thirteenth of sixteen at −2.8, and the week-by-week picture is more volatile than that average suggests: **+7.6, −7.4, +7.7, −12.0, −7.4.**
+
+They have lost the field position battle in three of five games — and won two of those three anyway. That is the headline for this team. Against Minnesota they started at their own **16.5** and won by 25. Against Missouri they gave up twelve yards a drive of territory and won by seven.
+
+Winning while starting behind is possible. It is also a tax you pay every week, and it is the thing that stops being survivable against a good opponent — which is more or less what week five looked like.
+
+Breaking Mississippi State's possessions down by how they began shows the problem is specific rather than general:
+
+| How the drive began | MSU start    | All FBS  | Difference |
+| ------------------- | ------------ | -------- | ---------- |
+| After a punt        | own 21.7     | own 25.2 | **−3.5**   |
+| After a kickoff     | own 23.9     | own 25.2 | −1.3       |
+| Opening possession  | own 24.8     | own 25.3 | −0.5       |
+| After a takeaway    | own **46.7** | own 42.9 | **+3.8**   |
+
+**When Mississippi State takes the ball away, it gets better field position than anybody** — own 46.7 against a national average of 42.9. The defense is not the issue here, and neither is the kickoff, which the touchback rule has flattened for everyone.
+
+The hole is after punts, where they start 3.5 yards worse than the average team. Some of that is their own punting and some is the return game:
+
+|                           | Punts | Average | Touchback rate | Fair catch rate |
+| ------------------------- | ----- | ------- | -------------- | --------------- |
+| Mississippi State punting | 14    | 41.4    | **14%**        | 57%             |
+| Opponents punting to MSU  | 21    | 42.9    | 5%             | 48%             |
+| All FBS                   | 1,570 | 42.2    | 9%             | 49%             |
+
+Mississippi State punts slightly shorter than average and kicks it into the end zone for a touchback **14% of the time against a national 9%** — a touchback is the worst outcome for a punting team, since it hands back the 25. Meanwhile opponents punting at Mississippi State get it _longer_ than average and give up touchbacks half as often.
+
+Two things to keep in mind before making too much of that. These are **14 and 21 punts** — a handful, and a bad week could move them. And Mississippi State has punted only fourteen times in five games, which is itself a compliment: this offense does not go three-and-out much. A team that rarely punts has fewer chances for punting to help it.
+
+The other half of the ledger is simpler and harder to fix. Mississippi State's turnover margin is −1, and takeaways are the single biggest source of field position in football. Seven takeaways in five games is not enough to tilt a field.
+
+---
+
+_How these numbers are built: 2026 drives against FBS opponents, garbage time removed, 5,519 drives in the value curve. Drive points count a touchdown as 7 and a field goal as 3, ignoring two-point conversions and defensive scores. The slope is an ordinary least-squares fit of drive points on starting yard line across every qualifying drive. How a possession began is derived from the previous drive's result in the same game, because the data has no column for it; possessions following something other than a punt, kickoff, takeaway or missed field goal are excluded from that chart. Punt averages are gross distance from the play description, not net of returns. Mississippi State's week-by-week chart includes all five opponents, all of whom are FBS. **There is no opponent adjustment in any of this** — a team that has played weak opponents will tend to start with better field position, and five games is a small sample for a team-level rate. Data from cfbfastR._
